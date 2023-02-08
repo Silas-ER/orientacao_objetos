@@ -28,4 +28,4 @@ def criar_conta():
     titular = input("Digite o primeiro nome do titular da conta: ")
     saldo_inicial = Decimal(input("Digite o valor inicial da conta: R$ ")) 
     score_client = int(input("Digite o valor do score do cliente (entre 0 e 1000): "))
-    limite = Decimal(calculo_de_limite(score_client))
+    limite = calculo_de_limite(score_client)
