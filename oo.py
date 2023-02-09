@@ -11,8 +11,18 @@ def calculo_de_limite(pontos):
         limite = random.uniform(1501,2500)
     return Decimal(limite)
 
-def armazenar():
+def armazenar(agencia, conta, nome, sobrenome, saldo, cheque):
     contas = {"Agência": agencia, "Conta": conta, "Nome": nome, "Sobrenome": sobrenome, "Saldo": saldo, "Limite": cheque}
+    return contas
+
+def sacar(conta, valor):
+    conta["Saldo"] -= valor
+
+def depositar(conta, valor):
+    conta["Saldo"] += valor
+
+def saldo_extrato(conta):
+    print("O saldo atual da conta é R$ {}".format(conta["Saldo"]))
 
 def criar_conta():
     n_agencia = 1339
@@ -26,6 +36,8 @@ def criar_conta():
             break    
     n_conta = int(input("Digite o número da conta: "))
     titular = input("Digite o primeiro nome do titular da conta: ")
+    sobrenome_titular = input("Digite o sobrenome do titular da conta: ")
     saldo_inicial = Decimal(input("Digite o valor inicial da conta: R$ ")) 
     score_client = int(input("Digite o valor do score do cliente (entre 0 e 1000): "))
     limite = calculo_de_limite(score_client)
+    conta = armazenar(n_agencia, n_conta, titular, sobrenome_titular, saldo_inicial, limite)
