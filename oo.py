@@ -1,4 +1,5 @@
 from decimal import Decimal
+from conta import Conta
 import random
 
 def calculo_de_limite(pontos):
@@ -26,18 +27,13 @@ def saldo_extrato(conta):
 
 def criar_conta():
     n_agencia = 1339
-    print("A agência atual é a {}\n".format(n_agencia))
-    while(true):
-        resposta = input("Deseja alterar a agência? ")
-        if(resposta == "sim"):
-            n_agencia = int(input("Digite a nova agência: "))
-            break
-        else:
-            break    
+    print("A agência atual é a {}\n".format(n_agencia))   
     n_conta = int(input("Digite o número da conta: "))
     titular = input("Digite o primeiro nome do titular da conta: ")
     sobrenome_titular = input("Digite o sobrenome do titular da conta: ")
     saldo_inicial = Decimal(input("Digite o valor inicial da conta: R$ ")) 
     score_client = int(input("Digite o valor do score do cliente (entre 0 e 1000): "))
     limite = calculo_de_limite(score_client)
-    conta = armazenar(n_agencia, n_conta, titular, sobrenome_titular, saldo_inicial, limite)
+    conta = Conta(n_agencia, n_conta, titular, sobrenome_titular, saldo_inicial, limite)
+    print(conta)
+
