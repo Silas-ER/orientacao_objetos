@@ -3,6 +3,7 @@ class Data:
         self.__dia = dia
         self.__mes = mes
         self.__ano = ano
-
+        
+    @property
     def formatacao(self):
         print("O dia de hoje é {}/{}/{}".format(self.__dia,self.__mes,self.__ano))
